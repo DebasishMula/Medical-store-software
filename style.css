@@ -1,0 +1,124 @@
+
+.tim{
+
+border: 2px solid rgb(32, 3, 32);
+border-radius: 60px;
+width: 224px;
+height: 230px;
+ margin-top: 40px;
+ margin-left: 220px;
+ background-position: center;
+
+}
+.text1{
+font-size: 30px;
+color: darkslategray;
+margin-left: 380px;
+font-weight: bold;
+font-style: bold;
+    }
+    .text2{
+        font-size: x-large;
+        color: rgb(0, 0, 0);
+        padding:30px;
+        font-weight: bold;
+        font-style: bold;
+            }
+.aContainer:hover
+{
+   
+   background-color: aliceblue;
+   
+}
+
+#ap
+{
+  float: left;
+  padding: 50px; 
+  background-color: rgb(113, 32, 32);
+  border: solid 2px rgb(239, 245, 24);
+  border-radius: 60px;
+  font-size: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(228, 234, 224, 0.993);
+  font-weight: bold;
+  
+}
+#cp
+{
+    height: 50px;
+    padding: 50px 22px 40px; 
+    background-color:rgb(43, 115, 107);
+    border: solid 2px rgb(23, 86, 13);
+    border-radius: 60px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(242, 243, 195, 0.993);
+    font-weight: bold;
+    float: right;
+   
+}
+#oos
+{
+
+    height: 50px;
+    padding: 50px; 
+    background-color: rgb(210, 25, 0);
+    border: solid 2px rgb(97, 15, 39);
+    border-radius: 60px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(208, 192, 192, 0.993);
+    font-weight: bold;
+   
+}
+
+
+#mb
+{
+  float: left;
+  padding: 50px; 
+  background-color: rgb(15, 126, 98);
+  border: solid 2px rgb(239, 245, 24);
+  border-radius: 60px;
+  font-size: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(228, 234, 224, 0.993);
+  font-weight: bold;
+  
+}
+#exc
+{
+    height:  50px;
+    padding: 50px 40px 40px; 
+    background-color:rgb(144, 45, 75);
+    border: solid 2px rgb(23, 86, 13);
+    border-radius: 60px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(242, 243, 195, 0.993);
+    font-weight: bold;
+    float: right;
+   
+}
+#rf
+{
+
+    height: 50px;
+    padding:  50px 60px 50px 60px; 
+    background-color: rgb(58, 64, 116);
+    border: solid 2px rgb(39, 13, 21);
+    border-radius: 60px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(208, 192, 192, 0.993);
+    font-weight: bold;
+   
+}
+
+
+
+.selectedItem
+{
+    border:2 px solid rgb(0, 90, 235); 
+}

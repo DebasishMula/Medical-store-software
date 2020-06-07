@@ -10,7 +10,11 @@ if(!$con)
 }
 $cname=$_POST['cname'];
 $date=$_POST['date'];
-$sql1="insert into billing(c_name,date)values('$cname','$date')";
-mysqli_query($con,$sql1);
+
+$sql1="insert into billing(c_name,date,gamount,discount,roff,namount,tgst)values('$cname','$date','','','','','')";
+if(mysqli_query($con,$sql1))
+{
+    echo "hhh";
+}
 
 ?>

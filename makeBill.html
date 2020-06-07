@@ -125,6 +125,7 @@
 {
   margin-left: 490px;
   padding: 2px;
+  
  
 }
 .gstContainer
@@ -146,7 +147,7 @@
   font-size: 17px;
   font-family:  Helvetica, sans-serif;
   font-style:initial;
-  margin-left: 80px;
+  margin-left: 70px;
 }
 .amountContainerDiscountNumber
 {
@@ -154,7 +155,7 @@
   font-size: 17px;
   font-family:  Helvetica, sans-serif;
   font-style:initial;
-  margin-left: 24px;
+  margin-left: 23px;
 }
 .amountContainerNetNumber
 {
@@ -165,11 +166,45 @@
   font-weight: bold;
   margin-left: 90px;
 }
+.amountContainerRoundOffNumber
+{
+  color: rgb(63, 17, 6);
+  font-size: 17pxpx;
+  font-family:  Helvetica, sans-serif;
+  font-style:initial;
+  margin-left: 102px;
+}
+.gnrtbillbtnContainer
+{
+  width: 1010px;
+  
+  margin: auto;
+}
+#gnBill
+{
+       background-color: rgb(155, 36, 36);
+       color: rgb(159, 170, 167);
+       padding: 8px 8px;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+       margin: 7px;
+       float: right;
+       font-size: 17px;
+       font-style:initial;
+       font-weight:700;
+       cursor: pointer;
+}
+#gnBill:hover
+{
+  background-color: rgb(88, 9, 9);
+}
     </style>
 </head>
 <body>
     <h1><center>XYZ Medical</center></h1>
     <hr>
+   
     <div class="mainContainer">
         <div class="container1">
             <form>
@@ -216,21 +251,29 @@
        <div  style="background-color: rgb(94, 109, 101);" >
         <div class="flex-container" style="background-color: rgb(94, 109, 101);">
       <div class="gstContainer" >
-        <span>CGST:</span> <span style="margin-left: 5px; color: red;">0</span>
-        <span style="margin-left: 15px;">SGST:</span> <span style="margin-left: 5px; color: red;">0</span>
+        <span>CGST:</span> <span id="cgst" style="margin-left: 5px; color: red;">0</span>
+        <span style="margin-left: 15px;">SGST:</span> <span id="sgst" style="margin-left: 5px; color: red;">0</span>
       </div>
        <div >
          <div class="amountContainer">
-           <span class="amountContainerText">Total Amount</span>
+           <span class="amountContainerText">Gross  Amount</span>
            <span id="tAmount" class="amountContainerTotalNumber" >0</span>
          </div>
+         
          <div  class="amountContainer">
-           <span class="amountContainerText">Discount</span>
-           <input id="dinput" type="number">
-           <span>(%)</span>
-           <span id="dAmount" class="amountContainerDiscountNumber" >0</span>
-          
+          <span class="amountContainerText">Discount</span>
+          <input id="dinput" type="number">
+          <span>(%)</span>
+          <span id="dAmount" class="amountContainerDiscountNumber" >0</span>
+        </div>
+
+
+         <div class="amountContainer">
+          <span class="amountContainerText">Round Off</span>
+          <span id="rf" class="amountContainerRoundOffNumber" >0</span>
          </div>
+
+         
         </div>
       </div>
          <hr>
@@ -241,8 +284,16 @@
        
       </div>
     </div>
+   </div>
+   <div class="gnrtbillbtnContainer">
+    <Button id="gnBill" type="button">Generate Bill</Button>
+   </div>
+   
     <script src="mb.js">
 
     </script>
+     
+     
+    
 </body>
 </html>

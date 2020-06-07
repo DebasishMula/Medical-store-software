@@ -1,8 +1,10 @@
-var pNo=1, items = [],tAmount=0,discountValue=0;
+var pNo=1,rNo=1, items = [],tAmount=0,discountValue=0,tGst=0;
 //Adding listner to Add Product button
 document.getElementById("apB").addEventListener("click",addProduct);
 //Adding input listner to discount 
 document.getElementById("dinput").addEventListener("input",discountCalculation);
+//Adding listner to Generate Bill Button
+document.getElementById("gnBill").addEventListener("click",generateBill);
 
 function addProduct()
 {
@@ -18,6 +20,7 @@ function addProduct()
  {
   //making tr
   var tr=document.createElement("tr");
+  tr.id="row"+pNo;
   tr.style.textAlign='center';
   
    //making td
@@ -110,13 +113,14 @@ function addProduct()
  chkQnty(document.getElementById(td3.id));
  chkbatch(document.getElementById(td2.id));
  chkItem(document.getElementById(input.id));
+ removeProduct(document.getElementById(btn.id));
  autocomplete(document.getElementById(input.id), items);
  
  
  }
  function billingitemInfo()
 {
-   if(pNo==1)
+   if(rNo==1)
    {
      //insert  Bill details to Billing
       var cname=document.getElementById("fname").value;
@@ -128,45 +132,22 @@ function addProduct()
       else{
         var url="addBilling.php";
         var queryString="cname=" + cname + "&date=" + date;
-        //sentDetails(url,queryString);
+        sentDetails(url,queryString);
         makeNewProduct();
         pNo++;
+        rNo++;
       }
      
    }
    else
    {
-     //insert billing itemInfo to billing_info
-     var preP=pNo-1;
-     var itemField=document.getElementById("pinput"+preP);
-     var bnoField=document.getElementById("bno"+preP);
-     var qntyField=document.getElementById("qnty"+preP);
-     var priceField=document.getElementById("price"+preP)
-     var gstField=document.getElementById("gst"+preP);
-     var item=itemField.value;
-     var bno=bnoField.innerText;
-     var qnty=qntyField.innerText;
-     var price=priceField.innerText;
-     var gst=gstField.innerText;
-     var tprice=document.getElementById("tprice"+preP).innerText;
-     if(item==""||bno==""||qnty==""||price==""||gst=="")
-     {
-           alert("Invalid Entry");
-     }
-     else if(itemField.style.backgroundColor=='darksalmon'||bnoField.style.backgroundColor=='darksalmon'||qntyField.style.backgroundColor=='darksalmon'||priceField.style.backgroundColor=='darksalmon'||gstField.style.backgroundColor=='darksalmon')
-     {
-       alert("Invalid Product Information");
-     }
-     else
-     {
-      var url="addBillingItemInfo.php";
-      var queryString="item=" + item + "&batch_no=" + bno + "&qnty=" + qnty + "&price=" + price + "&gst=" + gst + "&tprice=" + tprice;
-      //sentDetails(url,queryString);
+     
       makeNewProduct();
       pNo++;
+      rNo++;
      }
      
-   }
+   
 }
 function tdFocus(pNo)
 {
@@ -180,13 +161,14 @@ function totalPriceCalculation(slno)
     var priceId="price"+slno;
     var gstId="gst"+slno;
     var tpriceId="tprice"+slno;
-    //editing total Amount
+
+    
+     //if total price is not empty
     if(document.getElementById(tpriceId).innerText!="")
     {
-    
+      //editing total Amount
       tAmount-=document.getElementById(tpriceId).innerText;
     }
-    
       
        if(document.getElementById(qntyId).innerText!="" && document.getElementById(priceId).innerText!="" && document.getElementById(gstId).innerText!="")
        {
@@ -202,7 +184,7 @@ function totalPriceCalculation(slno)
              {
                discountCalculation();
              }
- 
+            
             
        }
   
@@ -405,9 +387,9 @@ function chkQnty(qntyField)
   {
     var url="/php/chkQnty.php";
     var qnty= qntyField.innerText;
-    var sl_no=this.id.slice(4);
-    var item=document.getElementById("pinput"+sl_no).value;
-    var batch= document.getElementById("bno"+sl_no).innerText;
+    var slno=this.id.slice(4);
+    var item=document.getElementById("pinput"+slno).value;
+    var batch= document.getElementById("bno"+slno).innerText;
     var queryString="item=" + item + "&batch=" + batch + "&qnty=" + qnty;
     if(!/^[0-9]+$/.test(qnty)){
       qntyField.style.backgroundColor='darksalmon';
@@ -435,8 +417,37 @@ function chkQnty(qntyField)
    
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(queryString);
+
+    //
+    var priceId="price"+slno;
+    var gstId="gst"+slno;
+    var tpriceId="tprice"+slno;
+    var price=parseInt(document.getElementById(priceId).innerText,10);
+    var gst=parseInt( document.getElementById(gstId).innerHTML,10);
+    var tprice=document.getElementById(tpriceId).innerHTML;
+     if(qnty!="" && document.getElementById(priceId).innerText!="" && document.getElementById(gstId).innerText!="")
+     {
+     //if total price is not empty
+     if(document.getElementById(tpriceId).innerText!="")
+     {
+       //calculation of previous  Quantity
+       var preQnty=(tprice*100)/((100+gst)*price);
+       //editing total gst
+       tGst-=((gst/100)*price*preQnty);
+       console.log(tGst)
+       tGst+=((gst/100)*(parseInt(qnty,10))*price);
+       console.log(tGst)
+     }
+     else
+     {
+          //editing total gst
+          tGst+=((gst/100)*(parseInt(qnty,10))*price);
+          
+          
+     }
+    }
     //price calculation
-    totalPriceCalculation(sl_no);
+    totalPriceCalculation(slno);
   }
   });
 
@@ -447,14 +458,42 @@ function chkPrice(priceField)
   priceField.addEventListener("input",function(e)
   {
   var price= priceField.innerText;
-  var sl_no=this.id.slice(5);
+  var slno=this.id.slice(5);
+  //if text is entered 
   if(!/^[0-9]+$/.test(price)){
+    //making background to wrong color
     priceField.style.backgroundColor='darksalmon';
   }
   else
   {
+    //making background to right color
     priceField.style.backgroundColor='rgb(241, 241, 241)';
-    totalPriceCalculation(sl_no);
+    var qntyId="qnty"+slno;
+    var gstId="gst"+slno;
+    var tpriceId="tprice"+slno;
+    var qnty=parseInt(document.getElementById(qntyId).innerText,10);
+    var gst=parseInt( document.getElementById(gstId).innerHTML,10);
+    var tprice= document.getElementById(tpriceId).innerHTML;
+    if(document.getElementById(qntyId).innerText!="" && price!="" && document.getElementById(gstId).innerText!="")
+    {
+     //if total price is not empty
+     if(document.getElementById(tpriceId).innerText!="")
+     {
+       //calculation of previous  Price
+       var prePrice=(tprice*100)/((100+gst)*qnty);
+       //editing total gst
+       tGst-=((gst/100)*qnty*prePrice);
+       console.log(tGst)
+       tGst+=((gst/100)*qnty*(parseInt(price,10)));
+       console.log(tGst)
+     }
+     else
+     {
+          //editing total gst
+          tGst+=((gst/100)*qnty*(parseInt(price,10)));
+     }
+    }
+    totalPriceCalculation(slno);
   }
   });
   
@@ -463,26 +502,189 @@ function chkGst(gstField)
 { 
   gstField.addEventListener("input",function(e)
   {
+   
     var gst= gstField.innerText;
-    var sl_no=this.id.slice(3);
+    var slno=this.id.slice(3);
+     //if text is entered 
     if(!/^[0-9]+$/.test(gst)){
+     //making background color wrong color
       gstField.style.backgroundColor='darksalmon';
     }
     else
     {
+      //making background to right color
       gstField.style.backgroundColor='rgb(241, 241, 241)';
-      totalPriceCalculation(sl_no);
+      
+      var qntyId="qnty"+slno;
+      var priceId="price"+slno;
+      var tpriceId="tprice"+slno;
+      var qnty=parseInt(document.getElementById(qntyId).innerText,10);
+      var price=parseInt(document.getElementById(priceId).innerText,10);
+      var tprice= document.getElementById(tpriceId).innerHTML;
+      if(document.getElementById(qntyId).innerText!="" && document.getElementById(priceId).innerText!="" && gst!="")
+      {
+      //if total price is not empty
+      if(document.getElementById(tpriceId).innerText!="")
+    {
+     
+      //calculation of previous  Gst Percent
+      var preGstPercent=((tprice*100)/(qnty*price))-100;
+      
+      //editing total gst
+      tGst-=((preGstPercent/100)*qnty*price);
+     
+      tGst+=(((parseInt(gst,10))/100)*qnty*price);
+     
+     
+    }
+    else
+    {
+         
+         tGst+=(((parseInt(gst,10))/100)*qnty*price);
+         
+         
+    }
+  }
+      totalPriceCalculation(slno);
     }
   });
   
 }
+function removeProduct(btn)
+{
+  btn.addEventListener("click",function(e)
+  {
+    var slno=this.id.slice(6);
+    var tr=document.getElementById("row"+slno);
+    var item=document.getElementById("pinput"+slno).value;
+    var batch= document.getElementById("bno"+slno).innerText;
+
+    document.getElementById("product_list").removeChild(tr);
+    rNo--;
+    
+
+  });
+}
 function discountCalculation()
 {
+  //getting discount percent from UI
   var discountPercent=document.getElementById("dinput").value;
-  discountValue=(tAmount/100)*discountPercent;
+  //calculating discount value
+  discountValue=parseFloat((tAmount/100)*discountPercent).toFixed(2);
+  //calculating net Amount
   var netAmount=tAmount-discountValue;
+  //Round off net Amount
+  var rfNetAmount=Math.round(netAmount);
+  //displaying the discount value 
   document.getElementById("dAmount").innerHTML=discountValue;
-  document.getElementById("nAmount").innerHTML=netAmount;
+  //displaying net amount
+  document.getElementById("nAmount").innerHTML=rfNetAmount;
+  //displaying Round Off Value
+  if((netAmount-rfNetAmount)>=0)
+  {
+    document.getElementById("rf").innerHTML=parseFloat(netAmount-rfNetAmount).toFixed(2);
+  }
+  else
+  {
+    document.getElementById("rf").innerHTML=0;
+  }
+  if(discountPercent=="")
+  {
+   //displaying the discount value 
+   document.getElementById("dAmount").innerHTML=0;
+   //displaying net amount
+   document.getElementById("nAmount").innerHTML=0;
+   document.getElementById("cgst").innerHTML=0;
+   document.getElementById("sgst").innerHTML=0;
 
   
+}
+  else{
+    if(discountPercent==0)
+  {
+    //displaying cgst and sgst
+    document.getElementById("cgst").innerHTML=(parseFloat(tGst/2).toFixed(2));
+    document.getElementById("sgst").innerHTML=(parseFloat(tGst/2).toFixed(2));
+  }
+  else 
+  {
+    
+    //displaying cgst and sgst
+    document.getElementById("cgst").innerHTML=0;
+    document.getElementById("sgst").innerHTML=0;
+  }
+  }
+ 
+  
+}
+function generateBill()
+{
+  //if there is no added prduct
+  if(rNo==1)
+  {
+    alert("Add atleast One Product");
+  }
+  //if discount percent field is empty
+  else if(document.getElementById("dinput").value=='')
+  {
+    alert("Fill Discount Percent");
+  }
+  else{
+    //for every product row
+   for(i=1;i<=pNo;i++)
+   {
+     if(document.getElementById("row"+i))
+     {
+       //sebding product details to database 
+       sendingRow(i);
+     }
+   }
+   //sending Bill Details to Database 
+  sendingBillDetails();
+  window.print();
+  location.reload();
+  }
+  
+}
+function sendingRow(preP)
+{
+  //insert billing itemInfo to billing_info
+  
+  var itemField=document.getElementById("pinput"+preP);
+  var bnoField=document.getElementById("bno"+preP);
+  var qntyField=document.getElementById("qnty"+preP);
+  var priceField=document.getElementById("price"+preP)
+  var gstField=document.getElementById("gst"+preP);
+  var item=itemField.value;
+  var bno=bnoField.innerText;
+  var qnty=qntyField.innerText;
+  var price=priceField.innerText;
+  var gst=gstField.innerText;
+  var tprice=document.getElementById("tprice"+preP).innerText;
+  if(item==""||bno==""||qnty==""||price==""||gst=="")
+  {
+        alert("Invalid Entry");
+  }
+  else if(itemField.style.backgroundColor=='darksalmon'||bnoField.style.backgroundColor=='darksalmon'||qntyField.style.backgroundColor=='darksalmon'||priceField.style.backgroundColor=='darksalmon'||gstField.style.backgroundColor=='darksalmon')
+  {
+    alert("Invalid Product Information");
+  }
+  else
+  {
+   var url="addBillingItemInfo.php";
+   var queryString="item=" + item + "&batch_no=" + bno + "&qnty=" + qnty + "&price=" + price + "&gst=" + gst + "&tprice=" + tprice;
+   sentDetails(url,queryString);
+}
+}
+function sendingBillDetails()
+{
+  var gAmount=document.getElementById("tAmount").innerHTML;
+  var discount=document.getElementById("dAmount").innerHTML;
+  var rOff=document.getElementById("rf").innerHTML;
+  var nAmount=document.getElementById("nAmount").innerHTML;
+  var tGst=document.getElementById("cgst").innerHTML;
+  var url="/php/addBillInfo.php";
+   var queryString="gamount=" + gAmount + "&discount=" + discount + "&roff=" + rOff + "&namount=" + nAmount + "&tgst=" + tGst ;
+   sentDetails(url,queryString);
+   
 }

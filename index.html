@@ -3,33 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <title>XYZ Medical</title>
-    <style>
-        .AddProduct
-        {
-            margin-left: 300px;
-            margin-top: 50px;
-            border: solid 3px black;
-            border-radius: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="../style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>XYX Medical.com</title>
 </head>
 <body>
-    <div>
-        <h1><center>XYZ Medical</center></h1>
-        <hr>
-    </div>
-    
-        <div>
-           <a href="stock.html"><img class="AddProduct" src="images/store.png"></a>
-           <a href="billing.html"><img class="AddProduct" src="images/billing.png"></a>
+    <nav class="navbar h-nav-res" style="background-color: rgb(56, 55, 55);">
+        
+        <ul class="nav-list v-class-res">
+           <div class="logo"><img src="/images/logo.jpg" alt="logo"></div>
+           <li><a href="#home">Home</a> </li>
+           <li><a href="#order">Order Now</a> </li>
+           <li><a href="#contact">Contact Us</a> </li>
+        </ul>
+        <div class="rightNav">
+            <span class="shop-name">Maa Manasa Medical Store</span>
+        </div>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+    </nav>
+    <section class=" firstSection" id="home">
+     <div class="main-box">
+         <div class="firstHalf background1">
+         
+         </div>
+         <div class="secondHalf background2">
+             <div class="loginContainer">
+                 <div class="logoContainer">
+                    <img src="images/admin.png" alt="logo">
+                 </div>
+                 <h3>Administrative Login</h3>
+            <form >
+                <label for="uname">Username</label>
+                <input type="text" id="uname" name="username" >
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" >
             
+                
+              
+                <button  type="button"  id="login">Log In</button>
+              </form>
+         </div>
+     </div>
+     </div>
+    </section>
+    <section class="secondSection" id="order">
+           
+        <div class="firstHalfOfsecondSection">
+           <img src="images/sideImg1.jpg" alt="image">
         </div>
-        <div>
-            <span class="text1" style="margin-right: 80px; ">Stock</span>
-            <span class="text1" >Billing</span>
+        <div class="secondHalfOfSeconfSection">
+           <div class="headerOfSecondSection">
+             <h2>Order Now!</h2>
+           </div> 
+           <div class="orderMedicine">
+            <form >
+                 
+                <div class="row">
+                    <div class="col-25">
+                      <label for="pname">Patient Name</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="pname" name="pname" placeholder="Patient name..">
+                    </div>
+                  </div>
+                  
+                  
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="address">Address</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea id="address" name="address" placeholder="Your Address.." style="height:100px"></textarea>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="phn">Mobile Number</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="number" name="phn" id="phone">
+                    </div>
+                  </div> 
+
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="img">Upload Prescription</label>
+                    </div>
+                    <div class="col-75">
+                      <input id="file" type="file"  >
+                    </div>
+                  </div>
+                  
+
+                  <div class="row">
+                    <button id="orderSubmit" type="button">Submit</button>
+                    
+                  </div>
+                  </form>
+                </div>
         </div>
+    </section>
+    <section class="thirdSection" id="contact">
+      <span class="headingOfthirdSec">Contact Us</span>
+      <div class="cntnOfthirdSec">
+        <div style="display: flex; justify-content: center;">
+          <i class="fa fa-map-marker" style="font-size:18px;color:red"></i>
+          <span class="cAdd">KanupoyraHat | Tatkapur | Purba Medinipur | WestBengal | 721455</span>
+        </div>
+        
+      <div class="phnemail">
+        <div style="display: flex; margin: 0% 2%; ">
+          <i class="fa fa-phone" style="font-size:18px;color:red;margin-right: 3%;"></i>
+          <span class="cPhn">9876543210</span>
+        </div>
+        <div style="display: flex;  margin: 0% 3%;">
+          <i class="fa fa-envelope-o" style="font-size:18px;color:red;margin-right: 2%;"></i>
+          <span class="cEmail">abcd@gmail.com</span>
+        </div>
+        
+      </div>
+    </div>
+    </section>
+    <section class="footer">
+      <span class="copyright">
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved |  by XYZ Medical || Developed by Debasish Mula
+      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </span>
+    </section>
+     <script src="../js/index.js">
     
+     </script>
 </body>
 </html>

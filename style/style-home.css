@@ -1,0 +1,177 @@
+*
+{
+ margin: 0;
+ padding: 0;
+}
+*
+{
+  box-sizing: border-box;
+}
+.navSection
+{
+ background-color:rgb(199, 191, 191);
+ height: 30px;
+}
+.navbar
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: sticky;
+ top: 0px;
+ cursor: pointer;
+ background-color: rgb(20, 60, 192);
+
+}
+.nav-list
+{
+  width: 50%;
+  
+  display: flex;
+  /* justify-content: center; */
+ align-items: center;
+
+}
+
+.logo
+{
+ width: 20%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.logo img
+{
+ width: 29%;
+ border: 1px solid white;
+ border-radius: 90px;
+}
+.nav-list li{
+  list-style: none;
+  padding: 13px 23px
+}
+.nav-list li a{
+ text-decoration: none;
+ color: white;
+}
+.nav-list li a:hover{
+ color: rgb(157, 183, 189);
+}
+.rightNav
+{
+ width: 50%;
+ 
+ text-align: right;
+}
+.shop-name
+{
+ color: rgb(245, 255, 219);
+ font-weight: 400;
+ font-size: 21px;
+ margin: 3%;
+ font-family: monospace;
+}
+.section
+{
+   display: flex;
+   flex-direction: column;
+   background-color: rgb(253, 251, 241);
+   justify-content: center;
+   width: 70%;
+   border: 1px solid lightblue ;
+   border-radius: 5px;
+   margin: 3% 0 0 4%;
+
+}
+.firstHalf
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.secondHalf
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.mainBox
+{
+ background-color: rgb(206, 171, 228);
+ padding: 4%;
+ margin:  2%;
+  width: 40%;
+  border: 2px solid  rgb(113, 133, 199);
+  border-radius: 20px;
+  cursor: pointer;
+}
+.mainBox span
+{
+   font-size: 20px;
+   font-family: sans-serif;
+   color: rgb(1, 0, 0,0.7);
+}
+@media screen and (max-width: 600px) {
+ .nav-list
+ {
+   flex-direction: column;
+ }
+ .navbar
+ {
+   flex-direction: column;
+   height: 220px;
+   transition: all 0.6s ease-out;
+ }
+ .burger
+ {
+   position: absolute;
+   cursor: pointer;
+   right: 3%;
+   top: 15px;
+ }
+ .line
+ {
+   width: 33px;
+   height: 4px;
+   background-color: white;
+   margin: 3px 3px;
+ }
+ .h-nav-res
+ {
+   height: 68px;
+ }
+ .v-class-res
+ {
+   opacity: 0;
+ }
+ .logo
+ {
+   width: 65%;
+ }
+ .shop-name
+ {
+  
+  position: absolute;
+   cursor: pointer;
+   left:0%;
+   top: 7px;
+   font-size:18px;
+ }
+ .shop-res
+ {
+  
+  display: none;
+ }
+ .section
+ {
+  width:95%;
+  margin: 12% auto;
+ }
+ .mainBox
+ {
+  padding: 12% 10% ;
+ }
+ .navSection{
+  height: 5px;
+ }
+}

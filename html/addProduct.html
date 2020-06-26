@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/style/style-home.css">
+ <title>Home Page</title>
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+ .cont
+ {
+   width: 500px;
+   margin: 30px auto 0px;
+   background-color: rgb(149, 175, 179);
+   height: 28px;
+   border-top: solid 3px rgb(52, 94, 88);
+   border-left: solid 3px rgb(52, 94, 88);
+   border-right: solid 3px rgb(52, 94, 88);
+   border-radius: 10px 10px 0px 0px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .cont span
+ {
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: rgb(79, 83, 51);
+   font-size: 23px;
+   width: 70%;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: auto;
+   
+ }
+input[type=text], select, textarea {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=date] {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  
+}
+input[type=number], select, textarea {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.row button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin: 7px;
+}
+
+.row button:hover {
+  background-color: #45a049;
+}
+
+.container {
+    width: 500px;
+    border-right: solid 3px rgb(52, 94, 88);
+    border-bottom: solid 3px rgb(52, 94, 88);
+    border-left: solid 3px rgb(52, 94, 88);
+ 
+  border-radius: 0px  0px 10px 10px;
+  background-color:rgb(149, 175, 179);;
+  padding: 25px;
+  margin:  auto ;
+}
+
+.col-25 {
+  float: left;
+  width: 28%;
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(87, 37, 37);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.col-75 {
+  float: left;
+  width: 72%;
+  margin-top: 8px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75  {
+    width: 100%;
+    margin-top: 0;
+  }
+  .row button
+  {
+    width: 90%;
+    float: unset;
+    margin: 3% auto;
+  }
+  .cont{
+    width: 95%;
+  }
+  .container
+  {
+    width: 95%;
+  }
+}
+</style>
+</head>
+<body >
+  <div class="navSection">
+  
+  </div>
+  <nav class="navbar h-nav-res" >
+         
+   <ul class="nav-list v-class-res">
+      <div class="logo"><img src="/images/logo.jpg" alt="logo"></div>
+      <li><a href="../html/home.html">Home</a> </li>
+      <li><a href="../html/stock.html">Stock</a> </li>
+      <li><a href="../html/billing.html">Billing</a> </li>
+      <li><a href="../html/settings.html">Settings</a> </li>
+   </ul>
+   <div class="rightNav">
+       <span class="shop-name">Maa Manasa Medical Store</span>
+   </div>
+   <div class="burger">
+     <div class="line"></div>
+     <div class="line"></div>
+     <div class="line"></div>
+   </div>
+ </nav>
+ 
+<div class="cont">
+     <span>Add Stock</span>
+   
+</div>
+<div class="container">
+  <form >
+    <!-- Product Name -->
+  <div class="row">
+    <div class="col-25">
+      <label for="pname">Product Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="pname"  placeholder="product name..">
+    </div>
+
+    <!-- Quantity -->
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="qnty">Quantity </label>
+    </div>
+    <div class="col-75">
+      <input type="number" id="qnty" name="quantity" placeholder="product quantity..">
+    </div>
+  </div>
+  
+  <!-- Price Per Unit -->
+  <div class="row">
+    <div class="col-25">
+      <label for="price">Price Per Unit</label>
+    </div>
+    <div class="col-75">
+        <input type="number" id="price" name="price" placeholder="product per price..">
+    </div>
+  </div>
+   <!-- Expiry Date -->
+   <div class="row">
+    <div class="col-25">
+      <label for="ed">Expiry Date</label>
+    </div>
+    <div class="col-75">
+      <input type="date" id="ed" name="edate" placeholder="expiry date..">
+    </div>
+    </div>
+  <!-- batch No -->
+  <div class="row">
+  <div class="col-25">
+    <label for="bno">Batch No.</label>
+  </div>
+  <div class="col-75">
+    <input type="text" id="bno" name="batch_no" placeholder="batch no..">
+    
+  </div>
+  </div>
+
+  <!-- Stockist -->
+  <div class="row">
+  <div class="col-25">
+    <label for="stk">Stokist Name</label>
+  </div>
+  <div class="col-75">
+    <input type="text" id="stk" name="stockist" placeholder="stokist name..">
+  </div>
+</div>
+  
+   <!-- Add Product -->
+  <div  class="row">
+    
+    <button id="add" type="button" >Add</button>
+  </div>
+  </form>
+</div>
+<script src="../js/ap.js">
+  
+    
+      
+     
+
+</script>
+</body>
+</html>

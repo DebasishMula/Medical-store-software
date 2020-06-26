@@ -1,0 +1,444 @@
+*
+{
+ margin: 0;
+ padding: 0;
+}
+*
+{
+  box-sizing: border-box;
+}
+html
+{
+  scroll-behavior: smooth;
+}
+.navbar
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: sticky;
+ top: 0px;
+ cursor: pointer;
+ 
+}
+.nav-list
+{
+  width: 50%;
+  
+  display: flex;
+  /* justify-content: center; */
+ align-items: center;
+
+}
+
+.logo
+{
+ width: 20%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.logo img
+{
+ width: 29%;
+ border: 1px solid white;
+ border-radius: 90px;
+}
+.nav-list li{
+  list-style: none;
+  padding: 13px 23px
+}
+.nav-list li a{
+ text-decoration: none;
+ color: white;
+}
+.nav-list li a:hover{
+ color: rgb(157, 183, 189);
+}
+.rightNav
+{
+ width: 50%;
+ 
+ text-align: right;
+}
+.shop-name
+{
+ color: rgb(245, 255, 219);
+ font-weight: 400;
+ font-size: 21px;
+ margin: 3%;
+ font-family: monospace;
+}
+.background1
+{
+ background: rgba(0,0,0,0)url(../images/bg3.jpg); 
+  background-size: cover;
+ background-blend-mode:darken;
+
+}
+.background2
+{
+  background: rgba(0,0,0,0.6)url(../images/bg4.jpg); 
+  background-size: cover;
+ background-blend-mode:darken;
+}
+.firstSection
+{
+  height: 100vh;
+}
+.main-box
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+ 
+}
+.firstHalf
+{
+  height: 100%;
+  width: 70%;
+}
+.secondHalf
+{
+  display: flex;
+ width: 30%;
+ height: 100%;
+ justify-content: center;
+ align-items: center;
+  
+}
+.loginContainer
+{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(183, 236, 243);
+  width: 78%;
+  height: 60%;
+  border-radius: 10px;
+  margin: auto;
+}
+.loginContainer h3{
+ 
+  margin: 8% auto 9%;
+  color: #a5f1ec;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+.loginContainer img{
+  width: 100%;
+ 
+}
+.logoContainer
+{
+ 
+ height: 17%;
+ width: 23%;
+ 
+  margin: auto;
+}
+.loginContainer input[type=text], select {
+  width: 94%;
+  padding: 3% 7%;
+  margin: 3% 3% 5% 3%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+.loginContainer input[type=password], select {
+  width: 94%;
+  padding: 3% 7%;
+  margin: 3% 3% 5% 3%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.loginContainer button {
+  width: 94%;
+  background: none;
+  color: white;
+  padding: 3% 7%;
+  cursor: pointer;
+  
+  margin: 3% 3% 10% 3%;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Balsamiq Sans;
+ 
+}
+
+.loginContainer button:hover {
+  background-color:grey;
+}
+.loginContainer label {
+  margin-left: 3%;
+  color: #a5f1ec;
+}
+.secondSection
+{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  margin: 2%;
+  
+}
+
+.firstHalfOfsecondSection
+{
+ width: 40%;
+ display: flex;
+ align-items: center;
+ 
+ 
+}
+.headerOfSecondSection
+{
+   margin: 1%
+}
+.headerOfSecondSection h2
+{
+   color: tomato;
+}
+.firstHalfOfsecondSection img
+{
+  width: 50%;
+  height: 50%;
+  border: 2px solid rgb(180, 209, 18);
+  border-radius: 20px;
+}
+.secondHalfOfSeconfSection
+{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+.orderMedicine
+{
+  width: 60%;
+  border-radius: 5px;
+ background-color:#f2f2f2;
+ padding: 20px;
+}
+.orderMedicine input[type=text],input[type=number], input[type=file],select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.orderMedicine label {
+  padding: 12px 12px 12px 0px;
+  display: inline-block;
+}
+
+.orderMedicine button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.orderMedicine button:hover {
+  background-color: #45a049;
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.thirdSection
+{
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.headingOfthirdSec
+{
+  color: white;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+  
+}
+.cntnOfthirdSec
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1% 0% 0% 0%;
+}
+.phnemail
+{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin:  2%;
+}
+.cAdd
+{
+  margin-left: 1%;
+  color: white;
+}
+
+.cPhn
+{
+  margin-left: 2%;
+  color: white;
+}
+.cEmail
+{
+  margin-left: 2%;
+  color: white;
+}
+
+.footer
+{
+  background-color: #1E1F29;
+  display: flex;
+  justify-content: center;
+}
+.copyright {
+ 
+  margin: 2%;
+  font-size: 12px;
+}
+@media screen and (max-width: 600px) {
+  .nav-list
+  {
+    flex-direction: column;
+  }
+  .navbar
+  {
+    flex-direction: column;
+    height: 200px;
+    transition: all 0.5s ease-out;
+  }
+  .burger
+  {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 15px;
+  }
+  .line
+  {
+    width: 33px;
+    height: 4px;
+    background-color: white;
+    margin: 3px 3px;
+  }
+  .h-nav-res
+  {
+    height: 68px;
+  }
+  .v-class-res
+  {
+    opacity: 0;
+  }
+  .logo
+  {
+    width: 65%;
+  }
+  .shop-name
+ {
+  
+  position: absolute;
+  cursor: pointer;
+  left: 0%;
+  top: 7px;
+  font-size:18px;
+ }
+ .shop-res
+ {
+  
+  display: none;
+ }
+  
+  .loginContainer
+  {
+    height: 63%;
+    align-items: unset;
+    margin-top:10px;
+  }
+  .main-box
+  {
+    align-items: unset;
+    
+  }
+  .firstHalf
+  {
+    width: 0%;
+  }
+  .secondHalf
+  {
+    width: 100%;
+    
+  
+  }
+  .background2
+{
+ background: rgba(0,0,0,0.4)url(../images/bg2.jpg);
+ background-size: cover;
+ background-blend-mode:darken;
+}
+.loginContainer button:hover {
+  background-color:rgb(18, 88, 97);
+}
+.col-25, .col-75, .orderMedicine input[type=submit] {
+  width: 100%;
+  margin-top: 0;
+}
+.firstHalfOfsecondSection
+{
+  width: 100%;
+  justify-content: center;
+}
+.secondSection
+{
+  flex-direction: column;
+}
+.secondHalfOfSeconfSection
+{
+  width: 100%;
+}
+.orderMedicine
+{
+  width: 90%;
+}
+
+
+}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/style/style-home.css">
+ <title>Document</title>
+ <style>
+  .pgHeader
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1% ;
+        }
+      .pgHeader span
+        {
+            font-size: 22px;
+            color: rgb(57, 85, 85);
+            font-family:monospace;
+        }
+        .container
+        {
+         margin-top: 2%;
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+         align-items: center;
+         width: 100%;
+        }
+        .sContainer
+        {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 50%;
+         
+        }
+     input[type=text]
+    {
+      
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin: 7px 35px 5px 5px;
+    }
+    input[type=date]
+    {
+     
+      padding: 7px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin: 7px 0px 0px 5px;
+    }
+    
+    .bContainer
+    {
+      
+      width: 35%;
+    }
+    .bContainer button
+    {
+      margin: 1% 1% 0 0;
+      padding: 2px 5px;
+      cursor: pointer;
+      float: right;
+      font-size: 15px;
+      font-family: 'Consolas';
+    }
+    .billContainer
+    {
+      width: 66%;
+      margin: 1% auto;
+      display: flex;
+      border: 1px solid rgb(209, 165, 165);
+      flex-direction: column;
+      align-items: center;
+      visibility: hidden;
+      
+    }
+    .cInfo
+    {
+      padding: 1%;
+      width: 90%;
+      margin: 2% 0 0 1%;
+      border: 1px solid rgb(31, 31, 65);
+      border-radius: 10px;
+    }
+    .cInfo span
+    {
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 15px;
+    }
+    #Billcname
+    {
+      margin-right: 6%;
+    }
+    .pContainer
+    {
+      margin: 5px 0px;
+      width: 96%;
+      padding: 1%;
+      background-color: rgb(202, 211, 187);
+    }
+    .pContainer th,td
+    {
+            width: 5%;
+            padding: 1% ;
+            border: solid 1px; 
+            text-align: center;
+    }
+    .amountCal
+    {
+      width: 100%;
+      display: flex;
+      flex-direction:column;
+      background-color: rgb(94, 109, 101);
+    }
+    .amountContainer
+    {
+      display: flex;
+      flex-direction: column;
+      margin-left: 70%;
+      font-size: 18px;
+    }
+    .amountContainerText
+    {
+    color: rgb(216, 221, 171);
+    font-size: large;
+    font-family:  Helvetica, sans-serif;
+    font-style:initial;
+    }
+    #gamount
+    {
+      color: rgb(63, 17, 6);
+      margin-left: 12%;
+    }
+    #discount
+    {
+      color: rgb(63, 17, 6);
+      margin-left: 27%;
+    }
+    #roff
+    {
+      color: rgb(63, 17, 6);
+      margin-left: 23%;
+    }
+    #namount
+    {
+      color: rgb(63, 17, 6);
+      margin-left: 19%;
+    }
+    .printContainer
+    {
+      width: 100%;
+    }
+    .printContainer button
+    {
+      padding: 7px 10px;
+      margin: 2%;
+      font-family: Verdana;
+      font-size: 17px;
+      background-color:rgb(46, 29, 26);
+      color:wheat;
+      cursor: pointer;
+      border:1px solid thistle;
+      border-radius: 10px;
+      float:right;
+    }
+    .printContainer button:hover
+    {
+      background-color:rgb(92, 41, 32) ;
+    }
+    @media screen and (max-width: 600px) {
+    .sContainer
+    {
+      width: 65%;
+    }
+    input[type=date]
+    {
+      width: 81%;
+    }
+    .bContainer
+    {
+      
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .bContainer button
+    {
+      margin: 3% ;
+      float: unset;
+      padding: 3px 6px;
+    }
+    .billContainer
+    {
+      width: 100%;
+      
+    }
+    .cInfo
+    {
+      width: 95%;
+    }
+    #Billcname
+    {
+      margin-right: 20%;
+    }
+    .pContainer
+    {
+      
+      width: 100%;
+      padding: 1%;
+      
+    }
+    .pContainer th
+    {
+            width: 3%;
+            
+    }
+    .amountContainer
+    {
+      margin-left: 50%;
+    }
+    #gamount
+    {
+      margin-left: 2%;
+    }
+  }
+ </style>
+</head>
+<body>
+ <div class="navSection">
+  
+ </div>
+ <nav class="navbar h-nav-res" >
+        
+  <ul class="nav-list v-class-res">
+     <div class="logo"><img src="/images/logo.jpg" alt="logo"></div>
+     <li><a href="../html/home.html">Home</a> </li>
+     <li><a href="../html/stock.html">Stock</a> </li>
+     <li><a href="../html/billing.html">Billing</a> </li>
+     <li><a href="../html/settings.html">Settings</a> </li>
+  </ul>
+  <div class="rightNav">
+      <span class="shop-name">Maa Manasa Medical Store</span>
+  </div>
+  <div class="burger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</nav>
+<div class="pgHeader">
+  <span>Search Bill</span>
+  
+ </div>
+ <div class="container">
+    <div class="sContainer">    
+   <form>
+   
+        
+        <label style="font-size: 16px;" for="fname">Customar Name:</label>
+        <input type="text" id="fname" name="fname">
+        <label style="margin-left: 10px; font-size: 16px;" for="date">Bill Date:</label>
+        <input type="date" id="date" name="date">
+        
+     
+  </form>
+ </div>
+ <div class="bContainer">
+   <button id="sb" type="button">Search</button>
+ </div>
+
+ </div>
+ <div class="billContainer">
+  <div class="cInfo">
+   <div><span >Bill No: </span><span id="bn">0</span></div>
+   <div><span>Customar name: </span><span id="Billcname" >Debasish Mula</span> <span>Bill Date: </span> <span id="Billdate">12//11/1996</span></div>
+  </div>
+  <div class="pContainer"> 
+    <table style="margin: auto;" >
+   <thead style=" background-color: rgb(175, 156, 102);">
+    <th class="header">Product Name</th>
+    
+    <th class="header">Quantity</th>
+    <th class="header">Price Per Unit</th>
+    <th class="header">GST</th>
+    <th class="header">Total Price</th>
+    
+   </thead>
+   <tbody id="product_list">
+     
+   </tbody>
+   </table>
+  </div>
+  <div class="amountCal">
+    <div class="gstContainer">
+     <span style="color: rgb(63, 17, 6);">CGST:</span> <span id="cgst">0</span>
+     <span style="color: rgb(63, 17, 6);">SGST:</span><span id="sgst">0</span>
+    </div>
+    <div class="amountContainer">
+      <div>
+        <span class="amountContainerText">Gross Amount</span> 
+         <span id="gamount" >0</span>
+     </div>
+      <div>
+        <span class="amountContainerText">Discount</span> 
+        <span id="discount" >0</span>
+      </div>
+      <div>
+        <span class="amountContainerText">Round Off</span> 
+        <span id="roff" >0</span>
+      </div>
+      <hr>
+      <div>
+        <span class="amountContainerText">Net Amount</span> 
+         <span id="namount" >0</span>
+      </div>
+    </div>
+  </div>
+  <div class="printContainer"> 
+    <Button id="print" type="button">Print Bill</Button>
+  </div>
+</div>
+
+<script src="/js/sb.js">
+</script>
+</body>
+</html>
